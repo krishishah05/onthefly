@@ -157,9 +157,13 @@ const createTripsUsersTable = async () => {
     }
 }
 
-seedTripsTable()
-createDestinationsTable()
-createActivitiesTable()
-createTripsDestinationsTable()
-createUsersTable()
-createTripsUsersTable()
+const setup = async () => {
+    await seedTripsTable()
+    await createDestinationsTable()
+    await createUsersTable()
+    await createActivitiesTable()
+    await createTripsDestinationsTable()
+    await createTripsUsersTable()
+}
+
+setup()
