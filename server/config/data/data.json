@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Vegas Graduation Bash",
+    "description": "Celebrate graduation in style with a wild Vegas trip! Hit the casinos, catch world-class shows, and party on the Strip with your crew.",
+    "img_url": "https://images.unsplash.com/photo-1605833556294-ea5c2a269e8a?w=800",
+    "num_days": 4,
+    "start_date": "2026-05-15",
+    "end_date": "2026-05-19",
+    "total_cost": 2500.00
+  },
+  {
+    "title": "NYC Weekend Getaway",
+    "description": "Explore the city that never sleeps! From Times Square to Central Park, catch a Broadway show and eat your way through the five boroughs.",
+    "img_url": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800",
+    "num_days": 3,
+    "start_date": "2026-06-05",
+    "end_date": "2026-06-08",
+    "total_cost": 1800.00
+  },
+  {
+    "title": "Miami Beach Bachelor Party",
+    "description": "Sun, sand, and nightlife — Miami has it all. Spend the days on South Beach and the nights at the best clubs in the city.",
+    "img_url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+    "num_days": 5,
+    "start_date": "2026-07-10",
+    "end_date": "2026-07-15",
+    "total_cost": 3200.00
+  },
+  {
+    "title": "Rocky Mountain Road Trip",
+    "description": "Hit the open road through Colorado's stunning Rockies. Hike, camp, and take in breathtaking views of national parks along the way.",
+    "img_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
+    "num_days": 7,
+    "start_date": "2026-08-01",
+    "end_date": "2026-08-08",
+    "total_cost": 1500.00
+  },
+  {
+    "title": "New Orleans Jazz Fest",
+    "description": "Immerse yourself in the culture, cuisine, and live music of the Big Easy. Bourbon Street, beignets, and jazz every night.",
+    "img_url": "https://images.unsplash.com/photo-1543133957-ca1e9c8c3a9f?w=800",
+    "num_days": 4,
+    "start_date": "2026-04-25",
+    "end_date": "2026-04-29",
+    "total_cost": 2100.00
+  },
+  {
+    "title": "Pacific Coast Highway Drive",
+    "description": "Drive the legendary PCH from San Francisco to Los Angeles, stopping at Big Sur, Morro Bay, and Santa Barbara along the way.",
+    "img_url": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800",
+    "num_days": 6,
+    "start_date": "2026-09-12",
+    "end_date": "2026-09-18",
+    "total_cost": 2000.00
+  }
+]
