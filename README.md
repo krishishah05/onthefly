@@ -1,6 +1,6 @@
 # ✈️ On the Fly
 
-On the Fly is a trip planning web app that makes organizing group trips a breeze. Users can create trips, assign destinations, add activities, and track budgets — all in one place.
+On the Fly is a full-stack trip planning web app that makes organizing group trips a breeze. Users can create trips, assign destinations, add activities, upvote entertainment options, and track budgets — all in one place.
 
 ## Features
 
@@ -10,9 +10,12 @@ On the Fly is a trip planning web app that makes organizing group trips a breeze
 - Choose from a list of available destinations to assign to a trip
 - View all trips associated with a given destination
 - View a trip's budget, description, date, and entertainment options
+- Upvote entertainment options to help the group decide
+- Add new activities to any trip
 
 ## Tech Stack
 
+- **Frontend:** React, Vite, React Router
 - **Backend:** Node.js, Express.js
 - **Database:** PostgreSQL (hosted on Render)
 - **Other:** cors, dotenv, nodemon, pg
@@ -21,6 +24,29 @@ On the Fly is a trip planning web app that makes organizing group trips a breeze
 
 ```
 onthefly/
+├── client/                            # React frontend
+│   ├── index.html
+│   ├── vite.config.js                 # Vite config with /api proxy to server
+│   ├── package.json
+│   └── src/
+│       ├── App.jsx                    # Root component, routing, data fetching
+│       ├── App.css
+│       ├── main.jsx
+│       ├── components/
+│       │   ├── ActivityBtn.jsx        # Upvote button for activities
+│       │   ├── AddTripOptionCard.jsx  # Trip card used when adding a destination
+│       │   ├── Card.jsx               # Trip card for the home page
+│       │   ├── DestinationBtn.jsx     # Destination tag on trip detail page
+│       │   └── DestinationCard.jsx    # Destination card for the destinations page
+│       └── pages/
+│           ├── ReadTrips.jsx          # Home — lists all trips
+│           ├── ReadDestinations.jsx   # Lists all destinations
+│           ├── TripDetails.jsx        # Trip detail with activities and destinations
+│           ├── CreateTrip.jsx         # Form to create a new trip
+│           ├── EditTrip.jsx           # Form to edit or delete a trip
+│           ├── CreateDestination.jsx  # Form to add a destination to a trip
+│           ├── CreateActivity.jsx     # Form to add an activity to a trip
+│           └── AddToTrip.jsx          # Select which trip to add a destination to
 └── server/
     ├── server.js                      # Express entry point
     ├── package.json
@@ -50,8 +76,6 @@ onthefly/
 | destinations | id, destination, description, city, country, img_url, flag_img_url |
 | activities | id, trip_id (FK), activity, num_votes |
 | trips_destinations | trip_id (FK), destination_id (FK) |
-| users | id, githubid, username, avatarurl, accesstoken |
-| trips_users | trip_id (FK), user_id (FK) |
 
 ## API Endpoints
 
@@ -101,12 +125,12 @@ onthefly/
 1. Clone the repository:
    ```bash
    git clone https://github.com/krishishah05/onthefly.git
-   cd onthefly/server
+   cd onthefly
    ```
 
-2. Install dependencies:
+2. Install server dependencies:
    ```bash
-   npm install
+   cd server && npm install
    ```
 
 3. Create a `.env` file in the `server` directory:
@@ -118,9 +142,14 @@ onthefly/
    PGUSER=your_username
    ```
 
-4. Start the server (automatically resets and seeds the database):
+4. Start the server:
    ```bash
    npm start
    ```
 
-The server runs on `http://localhost:3001` by default.
+5. In a separate terminal, install and start the client:
+   ```bash
+   cd client && npm install && npm run dev
+   ```
+
+The server runs on `http://localhost:3001` and the client on `http://localhost:5173`.
