@@ -1,0 +1,40 @@
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.flex-container > div {
+    width: 50%;
+    margin: 10px;
+    background-color: lightgray;
+    text-align: center;
+    padding: 30px;
+}
+
+.flex-container > div > p {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.addActivityBtn {
+    color: white;
+    background: rgba(151, 191, 216, 0.7);
+}
+
+.addActivityBtn:hover {
+    background: rgba(151, 191, 216, 1);
+}
+
+.addDestinationBtn {
+    color: white;
+    background: rgba(151, 191, 216, 0.7);
+}
+
+.addDestinationBtn:hover {
+    background: rgba(151, 191, 216, 1);
+}
+
+.right-side {
+    background-size: cover;
+}
