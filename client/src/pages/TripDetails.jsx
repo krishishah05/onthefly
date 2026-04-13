@@ -4,27 +4,35 @@ import ActivityBtn from '../components/ActivityBtn';
 import DestinationBtn from '../components/DestinationBtn';
 import './TripDetails.css'
 
-const TripDetails = ({ data }) => {
+const TripDetails = ({ data, api_url }) => {
     const { id } = useParams();
     const [activities, setActivities] = useState([]);
     const [destinations, setDestinations] = useState([]);
     const [trip, setTrip] = useState(null);
+    const [travelers, setTravelers] = useState([]);
+
+    const fetchTravelers = async () => {
+        const response = await fetch(`${api_url}/api/users-trips/users/${id}`)
+        const data = await response.json()
+        setTravelers(data)
+    }
 
     useEffect(() => {
         const fetchActivities = async () => {
-            const response = await fetch('/api/activities/' + id)
+            const response = await fetch(`${api_url}/api/activities/` + id)
             const data = await response.json()
             setActivities(data)
         }
 
         const fetchDestinations = async () => {
-            const response = await fetch('/api/trips_destinations/destinations/' + id)
+            const response = await fetch(`${api_url}/api/trips_destinations/destinations/` + id)
             const data = await response.json()
             setDestinations(data)
         }
 
         fetchActivities()
         fetchDestinations()
+        fetchTravelers()
 
         if (data && data.length > 0) {
             const current = data.find(t => t.id === parseInt(id))
@@ -52,11 +60,26 @@ const TripDetails = ({ data }) => {
                     <Link to={'/destination/new/' + id}>
                         <button className="addDestinationBtn">+ Add Destination</button>
                     </Link>
+                    <h4>Travelers</h4>
+                    {travelers && travelers.length > 0 ? (
+                        travelers.map(t => (
+                            <div key={t.id} className="traveler">
+                                <img src={t.avatarurl} alt={t.username} className="traveler-avatar" />
+                                <span>{t.username}</span>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No travelers yet</p>
+                    )}
+                    <br />
+                    <Link to={'/users/add/' + id}>
+                        <button className="addTravelerBtn">+ Add Traveler</button>
+                    </Link>
                 </div>
                 <div className="right-side" style={{ backgroundImage: trip.img_url ? `url(${trip.img_url})` : '' }}>
                     <h4>Entertainment Options</h4>
                     {activities && activities.map(a =>
-                        <ActivityBtn key={a.id} id={a.id} activity={a.activity} num_votes={a.num_votes} />
+                        <ActivityBtn key={a.id} id={a.id} activity={a.activity} num_votes={a.num_votes} api_url={api_url} />
                     )}
                     <br />
                     <Link to={'/activity/create/' + id}>

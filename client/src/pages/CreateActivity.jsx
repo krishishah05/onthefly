@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import './CreateActivity.css'
 
-const CreateActivity = () => {
+const CreateActivity = (props) => {
 
     const [activity, setActivity] = useState({ activity: "" })
     const { trip_id } = useParams();
@@ -28,7 +28,7 @@ const CreateActivity = () => {
             body: JSON.stringify(activity)
         }
 
-        fetch('/api/activities/' + trip_id, options)
+        fetch(`${props.api_url}/api/activities/` + trip_id, options)
         window.location.href = '/'
     }
 

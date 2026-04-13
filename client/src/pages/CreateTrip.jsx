@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CreateTrip.css'
 
-const CreateTrip = () => {
+const CreateTrip = (props) => {
 
     const [trip, setTrip] = useState({ title: "", description: "", img_url: "", num_days: 0, start_date: "", end_date: "", total_cost: 0.0 })
 
@@ -18,15 +18,17 @@ const CreateTrip = () => {
     const createTrip = (event) => {
         event.preventDefault()
 
+        const payload = { ...trip, username: props.user ? props.user.username : null }
+
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(trip)
+            body: JSON.stringify(payload)
         }
 
-        fetch('/api/trips', options)
+        fetch(`${props.api_url}/api/trips`, options)
         window.location.href = '/'
     }
 

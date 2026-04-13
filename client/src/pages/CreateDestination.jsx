@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router';
 import './CreateDestination.css'
 
-const CreateDestination = () => {
+const CreateDestination = (props) => {
 
     const [destination, setDestination] = useState({ destination: "", description: "", city: "", country: "", img_url: "", flag_img_url: "" })
     const { trip_id } = useParams();
@@ -29,7 +29,7 @@ const CreateDestination = () => {
                 body: JSON.stringify(destination)
             }
 
-            const response = await fetch('/api/destinations', options)
+            const response = await fetch(`${props.api_url}/api/destinations`, options)
             const data = await response.json()
             setDestination(data)
             return data.id
@@ -44,7 +44,7 @@ const CreateDestination = () => {
                 body: JSON.stringify({ trip_id: trip_id, destination_id: destination_id })
             }
 
-            const response = await fetch('/api/trips_destinations', options)
+            const response = await fetch(`${props.api_url}/api/trips_destinations`, options)
             const data = await response.json()
             return data
         }

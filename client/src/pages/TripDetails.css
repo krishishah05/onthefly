@@ -38,3 +38,27 @@
 .right-side {
     background-size: cover;
 }
+
+.addTravelerBtn {
+    color: white;
+    background: rgba(151, 191, 216, 0.7);
+}
+
+.addTravelerBtn:hover {
+    background: rgba(151, 191, 216, 1);
+}
+
+.traveler {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    justify-content: center;
+}
+
+.traveler-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}

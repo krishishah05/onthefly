@@ -1,0 +1,22 @@
+.AddUserToTrip {
+    padding: 20px;
+    color: white;
+}
+
+.AddUserToTrip h3 {
+    color: white;
+}
+
+.AddUserToTrip form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.AddUserToTrip input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
